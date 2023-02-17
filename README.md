@@ -68,7 +68,7 @@ All testing done through Insomnia and using the LocalHost.
 Please see LICENSE for details
 
 ## Credits
-* University of Adelaide - Coding Bootcamp
+* Georgia Tech University - Coding Bootcamp
 * GitHub
 * Youtube.com
 * U2 Tutors
