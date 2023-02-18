@@ -38,14 +38,14 @@ const sequelize = require('./config/connection');
 
 // Set up session storage with Sequelize
 const sess = {
-    secret: process.env.SESSION_SECRET,
+    secret: 'Super secret secret',
     // http://expressjs.com/en/resources/middleware/cookie-session.html
     // https://medium.com/@alysachan830/cookie-and-session-ii-how-session-works-in-express-session-7e08d102deb8
     cookie: {
         //     // Stored in milliseconds
         //     // (86400000 ms === 1 day)
         //     // (3600000 ms === 1 hour)
-        //     maxAge: 3600000,
+        //maxAge: 3600000,
     },
     resave: false,
     saveUninitialized: true,
@@ -60,21 +60,25 @@ const hbs = exphbs.create({
 });
 
 
-// Sets up the session with the above a values implemented
+// Stores user data between HTTP requests. It creates a new session for the user and assigns them a cookie. 
 app.use(session(sess));
 
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);  // Sets handlebars configurations.
+app.set('view engine', 'handlebars');  // Set Handlebars as the default template engine.
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Serve static files. 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Turn on routes.
 
 app.use(routes);
 
+// Syncs sequelize models to the database, then starts the Express.js server.
 sequelize.sync({ force: false }).then(() => {
+    // Force false so data doesn't get dropped on every sync.
     app.listen(PORT, () => console.log('Now listening'));
 });
