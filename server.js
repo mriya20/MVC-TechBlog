@@ -38,7 +38,7 @@ const sequelize = require('./config/connection');
 
 // Set up session storage with Sequelize
 const sess = {
-    secret: 'Super secret secret',
+    secret: process.env.SESSION_SECRET,
     // http://expressjs.com/en/resources/middleware/cookie-session.html
     // https://medium.com/@alysachan830/cookie-and-session-ii-how-session-works-in-express-session-7e08d102deb8
     cookie: {
