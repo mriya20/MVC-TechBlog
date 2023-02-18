@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User } = require('../models'); // Imports the models.
 
 const userData = [
     {
