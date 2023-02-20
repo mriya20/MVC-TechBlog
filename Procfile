@@ -1,0 +1,1 @@
+web: npm i && node seeds/index.js && node server.js
