@@ -23,7 +23,7 @@ const session = require('express-session');
 const routes = require('./controllers');
 
 const helpers = require('./utils/helper');
-const withAuth = require('./utils/auth');
+//const withAuth = require('./utils/auth');
 
 // Set up an Express App
 const app = express();
@@ -75,7 +75,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Turn on routes.
-app.use(withAuth);
+//app.use(withAuth);
 app.use(routes);
 
 // Syncs sequelize models to the database, then starts the Express.js server.

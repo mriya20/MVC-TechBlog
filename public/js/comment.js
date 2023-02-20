@@ -6,31 +6,32 @@ const loginFormHandle = async (event) => {
     console.log("loginFormHandle");
     // The trim() method removes whitespace from both ends of a string and returns a new string, without modifying the original string. 
     // To return a new string with whitespace trimmed from just one end, use trimStart() or trimEnd() 
-    const email = document.getElementById("email-login").value.trim();
-    const password = document.getElementById("password-login").value.trim();
+    const comment_body = document.getElementById("comment-body").value.trim();
+    const url = location.href.split("/")
+    const post_id = url[url.length - 1]
 
-    if (email && password) {
+    if (comment_body && post_id) {
         // Fetch sends the Request and returns a promise, which is resolved to the Response object when the request completes.
         // If the request fails, the promise is rejected. 
         // To get the data received in the response,
         // you need to wait for this promise to resolve into the Response object
-        const response = await fetch("/api/users/login", {
+        const response = await fetch("/api/comments", {
             method: "POST",
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ comment_body, post_id }),
             headers: { "Content-Type": "application/json" },
         });
-        console.log(email, password);
-        console.log(response);
+        const results = response.json()
+        console.log(results);
 
         if (response.ok) {
             console.log("TESTING");
             document.location.replace('/dashboard');
         } else {
-            console.log(err);
+
             alert("Failed to log in.");
         }
     }
 };
 
 
-document.getElementById('submitBtn').addEventListener('click', loginFormHandle);
+document.getElementById('comment-button').addEventListener('click', loginFormHandle);
