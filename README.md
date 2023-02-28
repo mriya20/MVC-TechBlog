@@ -20,7 +20,9 @@
 
 The motivation was to create a blog site where you can keep up to date with latest technology and it would give the user the ability to make their own posts and comments.
 
-![Homepage - Existing Posts](media/homepage.jpg);
+Heroku deployment link: https://mvc-techblog-am.herokuapp.com/
+
+![Homepage - Existing Posts](media/homepage.png);
 ## Table of Contents
 * [Description](#description)
 * [Installation](#installation)
@@ -32,6 +34,15 @@ The motivation was to create a blog site where you can keep up to date with late
 
 ## Installation  
  
+### Cloning the Repository
+
+Click `<> code` - the green button. After clicking, in the local tab, copy the SSH key. Open the terminal in your Macbook or [git bash](https://git-scm.com/downloads), if you have Windows/Linux, and type:
+
+```bash
+git clone [paste ssh key]
+```
+
+I would recommend downloading [Visual Studio Code](https://code.visualstudio.com/download) to edit the code locally. If you need more information on how to clone a repository, [click here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)!
 
  
 ## Usage
